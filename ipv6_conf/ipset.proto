@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+package ipset;
+
+service IpSet {
+  rpc Set (Request) returns (Reply) {}
+}
+
+message Request {
+  repeated string ipv6 = 1;
+  string subnet = 2;
+  repeated string iface = 3;
+  repeated string r_subnets = 4;
+  repeated string routes = 5;
+  repeated string r_devs = 6;
+  int32 mode = 7;
+}
+
+message Reply {
+  string message = 1;
+}
